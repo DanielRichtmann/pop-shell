@@ -86,22 +86,22 @@
 
         <!-- Focus Shifting -->
         <key type="as" name="focus-left">
-            <default><![CDATA[['<Super>Left','<Super>KP_Left','<Super>h']]]></default>
+            <default><![CDATA[['<Alt>Left','<Alt>KP_Left','<Alt>h']]]></default>
             <summary>Focus left window</summary>
         </key>
 
         <key type="as" name="focus-down">
-            <default><![CDATA[['<Super>Down','<Super>KP_Down','<Super>j']]]></default>
+            <default><![CDATA[['<Alt>Down','<Alt>KP_Down','<Alt>j']]]></default>
             <summary>Focus down window</summary>
         </key>
 
         <key type="as" name="focus-up">
-            <default><![CDATA[['<Super>Up','<Super>KP_Up','<Super>k']]]></default>
+            <default><![CDATA[['<Alt>Up','<Alt>KP_Up','<Alt>k']]]></default>
             <summary>Focus up window</summary>
         </key>
 
         <key type="as" name="focus-right">
-            <default><![CDATA[['<Super>Right','<Super>KP_Right','<Super>l']]]></default>
+            <default><![CDATA[['<Alt>Right','<Alt>KP_Right','<Alt>l']]]></default>
             <summary>Focus right window</summary>
         </key>
 
@@ -118,17 +118,17 @@
         </key>
 
         <key type="as" name="toggle-stacking-global">
-            <default><![CDATA[['<Super>s']]]></default>
+            <default><![CDATA[['<Alt>s']]]></default>
             <summary>Toggle stacking mode outside management mode</summary>
         </key>
 
         <key type="as" name="management-orientation">
-            <default><![CDATA[['o']]]></default>
+            <default><![CDATA[['t']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
         <key type="as" name="tile-enter">
-            <default><![CDATA[['<Super>Return','<Super>KP_Enter']]]></default>
+            <default><![CDATA[['<Super>Return','<Alt>r']]]></default>
             <summary>Enter tiling mode</summary>
         </key>
 
@@ -143,13 +143,13 @@
         </key>
 
         <key type="as" name="toggle-floating">
-            <default><![CDATA[['<Super>g']]]></default>
+            <default><![CDATA[['<Alt>g']]]></default>
             <summary>Toggles a window between floating and tiling</summary>
         </key>
 
         <!-- Tiling Mode -->
         <key type="as" name="toggle-tiling">
-            <default><![CDATA[['<Super>y']]]></default>
+            <default><![CDATA[['<Alt>y']]]></default>
             <summary>Toggles auto-tiling on and off</summary>
         </key>
 
@@ -195,7 +195,7 @@
         </key>
 
         <key type="as" name="tile-orientation">
-            <default><![CDATA[['<Super>o']]]></default>
+            <default><![CDATA[['<Alt>t']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
@@ -222,7 +222,7 @@
 
         <!-- Swap windows -->
         <key type="as" name="tile-swap-left">
-            <default><![CDATA[['<Primary>Left','<Primary>KP_Left','<Primary>h']]]></default>
+            <default><![CDATA[['<Alt><Shift>Left','<Alt><Shift>KP_Left','<Alt><Shift>h']]]></default>
             <summary>Swap window left</summary>
         </key>
 
@@ -237,29 +237,29 @@
         </key>
 
         <key type="as" name="tile-swap-right">
-            <default><![CDATA[['<Primary>Right','<Primary>KP_Right','<Primary>l']]]></default>
+            <default><![CDATA[['<Alt><Shift>Right','<Alt><Shift>KP_Right','<Alt><Shift>l']]]></default>
             <summary>Swap window right</summary>
         </key>
 
         <!-- Workspace Management -->
 
         <key type="as" name="pop-workspace-down">
-            <default><![CDATA[['<Super><Shift>Down','<Super><Shift>KP_Down','<Super><Shift>j']]]></default>
+            <default><![CDATA[['<Alt><Shift>Down','<Alt><Shift>KP_Down','<Alt><Shift>j']]]></default>
             <summary>Move window to the lower workspace</summary>
         </key>
 
         <key type="as" name="pop-workspace-up">
-            <default><![CDATA[['<Super><Shift>Up','<Super><Shift>KP_Up','<Super><Shift>k']]]></default>
+            <default><![CDATA[['<Alt><Shift>Up','<Alt><Shift>KP_Up','<Alt><Shift>k']]]></default>
             <summary>Move window to the upper workspace</summary>
         </key>
 
         <key type="as" name="pop-monitor-down">
-            <default><![CDATA[['<Super><Shift><Primary>Down','<Super><Shift><Primary>KP_Down','<Super><Shift><Primary>j']]]></default>
+            <default><![CDATA[['<Alt><Shift><Primary>Down','<Alt><Shift><Primary>KP_Down','<Alt><Shift><Primary>j']]]></default>
             <summary>Move window to the lower monitor</summary>
         </key>
 
         <key type="as" name="pop-monitor-up">
-            <default><![CDATA[['<Super><Shift><Primary>Up','<Super><Shift><Primary>KP_Up','<Super><Shift><Primary>k']]]></default>
+            <default><![CDATA[['<Alt><Shift><Primary>Up','<Alt><Shift><Primary>KP_Up','<Alt><Shift><Primary>k']]]></default>
             <summary>Move window to the upper monitor</summary>
         </key>
 
