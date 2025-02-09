@@ -86,22 +86,22 @@
 
         <!-- Focus Shifting -->
         <key type="as" name="focus-left">
-            <default><![CDATA[['<Alt>Left','<Alt>KP_Left','<Alt>h']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>Left','<Ctrl><Alt><Super>KP_Left','<Ctrl><Alt><Super>h']]]></default>
             <summary>Focus left window</summary>
         </key>
 
         <key type="as" name="focus-down">
-            <default><![CDATA[['<Alt>Down','<Alt>KP_Down','<Alt>j']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>Down','<Ctrl><Alt><Super>KP_Down','<Ctrl><Alt><Super>j']]]></default>
             <summary>Focus down window</summary>
         </key>
 
         <key type="as" name="focus-up">
-            <default><![CDATA[['<Alt>Up','<Alt>KP_Up','<Alt>k']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>Up','<Ctrl><Alt><Super>KP_Up','<Ctrl><Alt><Super>k']]]></default>
             <summary>Focus up window</summary>
         </key>
 
         <key type="as" name="focus-right">
-            <default><![CDATA[['<Alt>Right','<Alt>KP_Right','<Alt>l']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>Right','<Ctrl><Alt><Super>KP_Right','<Ctrl><Alt><Super>l']]]></default>
             <summary>Focus right window</summary>
         </key>
 
@@ -118,7 +118,7 @@
         </key>
 
         <key type="as" name="toggle-stacking-global">
-            <default><![CDATA[['<Alt>s']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>s']]]></default>
             <summary>Toggle stacking mode outside management mode</summary>
         </key>
 
@@ -128,7 +128,7 @@
         </key>
 
         <key type="as" name="tile-enter">
-            <default><![CDATA[['<Super>Return','<Alt>r']]]></default>
+            <default><![CDATA[['<Super>Return','<Ctrl><Alt><Super>r']]]></default>
             <summary>Enter tiling mode</summary>
         </key>
 
@@ -143,13 +143,13 @@
         </key>
 
         <key type="as" name="toggle-floating">
-            <default><![CDATA[['<Alt>g']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>g']]]></default>
             <summary>Toggles a window between floating and tiling</summary>
         </key>
 
         <!-- Tiling Mode -->
         <key type="as" name="toggle-tiling">
-            <default><![CDATA[['<Alt>y']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>y']]]></default>
             <summary>Toggles auto-tiling on and off</summary>
         </key>
 
@@ -195,7 +195,7 @@
         </key>
 
         <key type="as" name="tile-orientation">
-            <default><![CDATA[['<Alt>t']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super>t']]]></default>
             <summary>Toggle tiling orientation</summary>
         </key>
 
@@ -222,7 +222,7 @@
 
         <!-- Swap windows -->
         <key type="as" name="tile-swap-left">
-            <default><![CDATA[['<Alt><Shift>Left','<Alt><Shift>KP_Left','<Alt><Shift>h']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Left','<Ctrl><Alt><Super><Shift>KP_Left','<Ctrl><Alt><Super><Shift>h']]]></default>
             <summary>Swap window left</summary>
         </key>
 
@@ -237,7 +237,7 @@
         </key>
 
         <key type="as" name="tile-swap-right">
-            <default><![CDATA[['<Alt><Shift>Right','<Alt><Shift>KP_Right','<Alt><Shift>l']]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Right','<Ctrl><Alt><Super><Shift>KP_Right','<Ctrl><Alt><Super><Shift>l']]]></default>
             <summary>Swap window right</summary>
         </key>
 
