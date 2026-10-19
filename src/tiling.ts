@@ -228,6 +228,15 @@ export class Tiler {
                         }
                     }
 
+                    // i3-style: if there is no window in that direction, but the window
+                    // shares a perpendicular split with a sibling, re-orient that split
+                    // instead of jumping to another monitor or workspace.
+                    if (!this.is_tiled_neighbor(ext, focused, move_to, direction) && this.reorient_split(ext, focused, direction)) {
+                        this.moving = false;
+                        place_pointer()
+                        return;
+                    }
+
                     if (move_to !== null) this.move_auto(ext, focused, move_to, direction === Direction.Left);
                     this.moving = false;
                     place_pointer();
@@ -239,6 +248,86 @@ export class Tiler {
                 this.change(ext.overlay, rect, x, y, w, h).change(ext.overlay, rect, 0, 0, 0, 0);
             });
         }
+    }
+
+    /** Whether `other` is a tiled window on the same monitor that actually lies in
+     * `direction` next to `focused`. The focus selector only compares the top-left
+     * corners, so a floating window, a window on another monitor, or a frame that
+     * is off by a pixel would otherwise count as a neighbor. That happens mostly
+     * for up/down, since side-by-side windows share the same top edge. */
+    is_tiled_neighbor(
+        ext: Ext,
+        focused: window.ShellWindow,
+        other: window.ShellWindow | number | null,
+        direction: Direction,
+    ): boolean {
+        if (!(other instanceof ShellWindow)) return false;
+        if (!ext.auto_tiler || !ext.auto_tiler.attached.get(other.entity)) return false;
+        if (other.meta.get_monitor() !== focused.meta.get_monitor()) return false;
+
+        const a = focused.meta.get_frame_rect();
+        const b = other.meta.get_frame_rect();
+        const tolerance = ext.gap_inner + 16;
+
+        const overlap = (a0: number, a1: number, b0: number, b1: number) => Math.min(a1, b1) - Math.max(a0, b0);
+
+        switch (direction) {
+            case Direction.Up:
+                return b.y + b.height <= a.y + tolerance && overlap(a.x, a.x + a.width, b.x, b.x + b.width) > tolerance;
+            case Direction.Down:
+                return b.y >= a.y + a.height - tolerance && overlap(a.x, a.x + a.width, b.x, b.x + b.width) > tolerance;
+            case Direction.Left:
+                return b.x + b.width <= a.x + tolerance && overlap(a.y, a.y + a.height, b.y, b.y + b.height) > tolerance;
+            case Direction.Right:
+                return b.x >= a.x + a.width - tolerance && overlap(a.y, a.y + a.height, b.y, b.y + b.height) > tolerance;
+        }
+    }
+
+    /** Re-orients the split the focused window is in, so that the window ends up
+     * on the side given by `direction`. Returns false if the split already runs
+     * along that direction (or there is no split), leaving the move to the
+     * default behavior. */
+    reorient_split(ext: Ext, focused: window.ShellWindow, direction: Direction): boolean {
+        const at = ext.auto_tiler;
+        if (!at) return false;
+
+        const fork_entity = at.attached.get(focused.entity);
+        if (!fork_entity) return false;
+
+        const fork = at.forest.forks.get(fork_entity);
+        if (!fork || !fork.right) return false;
+
+        const { HORIZONTAL, VERTICAL } = Lib.Orientation;
+        const vertical_move = direction === Direction.Up || direction === Direction.Down;
+        const target = vertical_move ? VERTICAL : HORIZONTAL;
+
+        if (fork.orientation === target) return false;
+
+        const focused_is_left = fork.left.is_window(focused.entity);
+        if (!focused_is_left && !fork.right.is_window(focused.entity)) return false;
+
+        // Up/Left => focused goes first (left branch); Down/Right => second.
+        const want_left = direction === Direction.Up || direction === Direction.Left;
+        if (want_left !== focused_is_left) {
+            const temp = fork.left;
+            fork.left = fork.right;
+            fork.right = temp;
+        }
+
+        fork.set_orientation(target);
+        at.forest.measure(ext, fork, fork.area);
+
+        for (const child of at.forest.iter(fork_entity, Node.NodeKind.FORK)) {
+            const child_fork = at.forest.forks.get((child.inner as Node.NodeFork).entity);
+            if (child_fork) {
+                child_fork.rebalance_orientation();
+                at.forest.measure(ext, child_fork, child_fork.area);
+            }
+        }
+
+        at.forest.arrange(ext, fork.workspace, true);
+        this.overlay_watch(ext, focused);
+        return true;
     }
 
     move_alongside_stack(
