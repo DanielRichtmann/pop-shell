@@ -75,7 +75,7 @@
         </key>
 
         <key type="b" name="tile-by-default">
-            <default>false</default>
+            <default>true</default>
             <summary>Tile launched windows by default</summary>
         </key>
 
@@ -175,22 +175,22 @@
         </key>
 
         <key type="as" name="tile-move-left-global">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Left']]]></default>
             <summary>Move window left</summary>
         </key>
 
         <key type="as" name="tile-move-down-global">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Down']]]></default>
             <summary>Move window down</summary>
         </key>
 
         <key type="as" name="tile-move-up-global">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Up']]]></default>
             <summary>Move window up</summary>
         </key>
 
         <key type="as" name="tile-move-right-global">
-            <default><![CDATA[[]]]></default>
+            <default><![CDATA[['<Ctrl><Alt><Super><Shift>Right']]]></default>
             <summary>Move window right</summary>
         </key>
 
